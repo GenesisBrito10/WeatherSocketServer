@@ -8,7 +8,7 @@ import java.net.URL;
 
 
 public class Api {
-    private static final String API_KEY = "39bb5b6d";
+    private static final String API_KEY = "942bcea3";
    
     public static JSONObject consultaApi(String cidade) throws Exception{
          try {
