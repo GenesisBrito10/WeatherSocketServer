@@ -12,8 +12,8 @@ O Servidor Weather foi criado com a intenção de solicitar um serviço de previ
 
 Os símbolos usados para especificar o início e o fim de cada protocolo são:
 
-- Início: `#`
-- Fim: `#/`
+- Início: `#`protocolo`#`
+- Fim: `#/`protocolo`#`
 
 ### 2. Protocolos
 
