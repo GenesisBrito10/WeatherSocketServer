@@ -28,8 +28,11 @@ public class Api {
             
             JSONParser parser = new JSONParser();
             JSONObject consulta = (JSONObject) parser.parse(response.toString());
+            JSONObject results = (JSONObject) consulta.get("results");
 
-            return consulta;
+
+
+            return results;
             
 
         } catch (Exception e) {
@@ -42,8 +45,8 @@ public class Api {
         try {
             
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String temperature = results.get("temp").toString();
+           
+            String temperature = consulta.get("temp").toString();
 
             return temperature;
 
@@ -58,8 +61,8 @@ public class Api {
     public static String getHoras(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String horas = results.get("time").toString();
+           
+            String horas = consulta.get("time").toString();
             
             return horas;
 
@@ -73,8 +76,8 @@ public class Api {
     public static String getPeriodoDia(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String periodo = results.get("currently").toString();
+           
+            String periodo = consulta.get("currently").toString();
             
             return periodo;
 
@@ -88,8 +91,8 @@ public class Api {
     public static String getClima(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String clima = results.get("description").toString();
+           
+            String clima = consulta.get("description").toString();
             
             return clima;
 
@@ -103,8 +106,8 @@ public class Api {
     public static String getClimaAmanha(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            JSONArray previsoes = (JSONArray) results.get("forecast");
+           
+            JSONArray previsoes = (JSONArray) consulta.get("forecast");
             
             if (previsoes.size() > 0) {
                 JSONObject primeiraPrevisao = (JSONObject) previsoes.get(1);
@@ -123,8 +126,8 @@ public class Api {
      public static String getNebulosidade(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String neb = results.get("cloudiness").toString();
+           
+            String neb = consulta.get("cloudiness").toString();
             
             return neb;
 
@@ -138,8 +141,8 @@ public class Api {
     public static String getUmidade(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String umid = results.get("humidity").toString();
+           
+            String umid = consulta.get("humidity").toString();
             
             return umid;
 
@@ -153,8 +156,8 @@ public class Api {
     public static String getChuva(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String chuva = results.get("rain").toString();
+           
+            String chuva = consulta.get("rain").toString();
             
             return chuva;
 
@@ -168,8 +171,8 @@ public class Api {
     public static String getNascerSol(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String nasc_sol = results.get("sunrise").toString();
+           
+            String nasc_sol = consulta.get("sunrise").toString();
             
             return nasc_sol;
 
@@ -182,8 +185,8 @@ public class Api {
     public static String getVelVento(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String vel_vento = results.get("wind_speedy").toString();
+           
+            String vel_vento = consulta.get("wind_speedy").toString();
             
             return vel_vento;
 
@@ -197,8 +200,8 @@ public class Api {
     public static String getFusoHorario(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String fuso_hor = results.get("timezone").toString();
+           
+            String fuso_hor = consulta.get("timezone").toString();
             
             return fuso_hor;
 
@@ -212,8 +215,8 @@ public class Api {
     public static String getPorSol(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String por_sol = results.get("sunset").toString();
+           
+            String por_sol = consulta.get("sunset").toString();
             
             return por_sol;
 
@@ -227,8 +230,8 @@ public class Api {
     public static String getFaseLua(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String fase = results.get("moon_phase").toString();
+           
+            String fase = consulta.get("moon_phase").toString();
             
             switch (fase) {
                 case "new":
@@ -271,8 +274,8 @@ public class Api {
     public static String getDirecaoVento(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            String dir = results.get("wind_cardinal").toString();
+           
+            String dir = consulta.get("wind_cardinal").toString();
             
             return dir;
 
@@ -285,8 +288,8 @@ public class Api {
     public static String getTempMaxHoje(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            JSONArray previsoes = (JSONArray) results.get("forecast");
+           
+            JSONArray previsoes = (JSONArray) consulta.get("forecast");
             
             if (previsoes.size() > 0) {
                 JSONObject primeiraPrevisao = (JSONObject) previsoes.get(0);
@@ -304,8 +307,8 @@ public class Api {
     public static String getTempMinHoje(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            JSONArray previsoes = (JSONArray) results.get("forecast");
+           
+            JSONArray previsoes = (JSONArray) consulta.get("forecast");
             
             if (previsoes.size() > 0) {
                 JSONObject primeiraPrevisao = (JSONObject) previsoes.get(0);
@@ -322,8 +325,8 @@ public class Api {
     public static String getTempMaxAmanha(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            JSONArray previsoes = (JSONArray) results.get("forecast");
+           
+            JSONArray previsoes = (JSONArray) consulta.get("forecast");
             
             if (previsoes.size() > 0) {
                 JSONObject primeiraPrevisao = (JSONObject) previsoes.get(1);
@@ -341,8 +344,8 @@ public class Api {
     public static String getTempMinAmanha(String cidade) {
         try {
             JSONObject consulta = consultaApi(cidade);
-            JSONObject results = (JSONObject) consulta.get("results");
-            JSONArray previsoes = (JSONArray) results.get("forecast");
+           
+            JSONArray previsoes = (JSONArray) consulta.get("forecast");
             
             if (previsoes.size() > 0) {
                 JSONObject primeiraPrevisao = (JSONObject) previsoes.get(1);
@@ -357,3 +360,4 @@ public class Api {
         }
     }
 }
+
