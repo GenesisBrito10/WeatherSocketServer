@@ -30,9 +30,9 @@ class Cliente {
 
     private static void Client(Socket socket) {
         try {
-            BufferedReader msgFromUser = new BufferedReader(new InputStreamReader(System.in));
-            PrintStream toServer = new PrintStream(socket.getOutputStream());
-            BufferedReader fromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader msgFromUser = new BufferedReader(new InputStreamReader(System.in)); //le cliente
+            PrintStream toServer = new PrintStream(socket.getOutputStream()); // escreve dados servidor
+            BufferedReader fromServer = new BufferedReader(new InputStreamReader(socket.getInputStream())); //le dados servidor
 
             String userInput;
             System.out.print("Digite seu nome: ");
@@ -58,7 +58,9 @@ class Cliente {
                 if (responseFromServer.equals("sair")) {
                     break;
                 }
-                System.out.println("\n" + responseFromServer);
+                System.out.println("\n----------------------------------------------------");
+                System.out.println(responseFromServer);
+                System.out.println("------------------------------------------------------");
                 tempo();
 
 
