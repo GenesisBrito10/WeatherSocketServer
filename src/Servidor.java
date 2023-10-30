@@ -40,7 +40,7 @@ class Multicliente extends Thread {
 
     private static String extrairprotocolo(String input) {
         
-        Pattern pattern = Pattern.compile("#([a-z_]+)#(.+?)#/([a-z_]+)#");
+        Pattern pattern = Pattern.compile("#([a-z_]+)#([^0-9]+)#/([a-z_]+)#");
         Matcher matcher = pattern.matcher(input);
         
         if (matcher.find()) {
